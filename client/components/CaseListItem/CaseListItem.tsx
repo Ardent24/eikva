@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./CaseListItem.css";
 import Button from "../universal/Button/Button";
+import Card from "../universal/Card/Card";
+import Textarea from "../universal/Textarea/Textarea";
 export const CaseListItem = ({
   caseId,
   detailedCase,
@@ -23,7 +25,7 @@ export const CaseListItem = ({
   );
   const [refineField, setRefineField] = useState("Refine...");
   return (
-    <>
+    <Card className={isActive && "active"}>
       <div
         className={
           isActive ? "case-list-item active" : "case-list-item non-active"
@@ -59,6 +61,17 @@ export const CaseListItem = ({
               }
             }}
           />
+          <Textarea
+            style={{
+              cursor:
+                (isExpanded && isActive && "text") ||
+                (isExpanded && !isActive && "pointer") ||
+                "default",
+              height: isExpanded ? "26.125rem" : "5.75rem",
+            }}
+          >
+            {caseField}
+          </Textarea>
           <div
             className="position-absolute d-flex"
             style={{ top: "0.5rem", right: "0.5rem", columnGap: "0.5rem" }}
@@ -121,6 +134,6 @@ export const CaseListItem = ({
           </div>
         )}
       </div>
-    </>
+    </Card>
   );
 };

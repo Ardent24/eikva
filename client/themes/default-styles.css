@@ -1,0 +1,139 @@
+/* В этом файле желательно избегать глубокой вложенности, чтобы не присваивать свойствам высокий приоритет */
+
+:root {
+  /* font */
+  --font-family: roboto;
+  --font-size: 1rem;
+  --font-weight: normal;
+  --line-height: 1.5;
+
+  --bg-hue: 0;
+  --bg-saturation: 0%;
+  --bg-lightness: 80%;
+  --bg-alpha: 1;
+  --bg: hsla(
+    var(--bg-hue),
+    var(--bg-saturation),
+    var(--bg-lightness),
+    var(--bg-alpha)
+  );
+
+  --color-hue: 0;
+  --color-saturation: 0%;
+  --color-lightness: 50%;
+  --color-alpha: 1;
+  --color: hsl(
+    var(--color-hue),
+    var(--color-saturation),
+    var(--color-lightness),
+    var(--color-alpha)
+  );
+
+  --background-image: var(--background-image-url);
+  --background: var(--background-image, var(--background-gradient, var(--bg)));
+
+  --gap: 1rem;
+  --padding: 1rem;
+  --margin: 1rem;
+  --border-radius: 0;
+
+  --button-padding-y: 0.375em;
+  --button-padding-x: 0.75em;
+
+  /* --accent-bg-hue: var(--bg-hue);
+  --accent-bg-saturation: var(--bg-saturation);
+  --accent-bg-lightness: calc(var(--bg-lightness) - 20%);
+  --accent-bg-opacity: 1;
+  --accent-color-hue: 0;
+  --accent-color-saturation: 0%;
+  --accent-color-lightness: 100%;
+  --accent-color-opacity: 1;
+  --muted-color-hue: var(--color-hue);
+  --muted-color-saturation: var(--color-saturation);
+  --muted-color-lightness: calc(var(--color-lightness) + 5%);
+  --muted-color-opacity: 1; */
+
+  /* --sidebar-width: 25%; */
+
+  /* --base-bg: hsla(
+    var(--bg-hue),
+    var(--bg-saturation),
+    calc(var(--bg-lightness) + 10%),
+    1
+  );
+
+  --accent-bg: hsla(
+    var(--accent-bg-hue),
+    var(--accent-bg-saturation),
+    var(--accent-bg-lightness),
+    var(--accent-bg-opacity)
+  );
+
+  --accent-color: hsla(
+    var(--accent-color-hue),
+    var(--accent-color-saturation),
+    var(--accent-color-lightness),
+    var(--accent-color-opacity)
+  );
+
+  --button-background-color: hsla(
+    var(--bg-hue),
+    var(--bg-saturation),
+    calc(var(--bg-lightness) + 5%),
+    1
+  );
+
+  --active-bg: hsla(
+    var(--bg-hue),
+    var(--bg-saturation),
+    calc(var(--bg-lightness) - 10%),
+    1
+  );
+
+  --muted-color: hsla(
+    var(--muted-color-hue),
+    var(--muted-color-saturation),
+    var(--muted-color-lightness),
+    var(--muted-color-lightness)
+  ); */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* transition: all 1.15s; */
+}
+
+body {
+  margin: 0;
+  background: center / cover var(--background);
+  color: var(--color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  min-height: 100vh;
+}
+
+.display-flex {
+  display: flex;
+}
+.display-flex:not(.flex-column) {
+  column-gap: var(--gap, 1rem);
+}
+.display-flex.flex-column {
+  row-gap: var(--gap, 1rem);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.height-100 {
+  width: 100%;
+}

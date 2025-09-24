@@ -1,10 +1,11 @@
 .sidebar {
+  height: 100%;
   width: 20rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1rem 0.5rem 1rem 1rem;
-  overflow-y: auto;
+  padding: var(--padding) calc(var(--gap) / 2) var(--padding) var(--padding);
+  overflow-y: hidden;
 }
 
 .sidebar-main {

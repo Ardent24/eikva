@@ -14,7 +14,7 @@
 
 .upload-zone {
   height: 14rem;
-  padding: 1rem 1rem 1rem 0.5rem;
+  padding: var(--gap) var(--padding) var(--padding) calc(var(--gap) / 2);
   display: flex;
   column-gap: 0.5rem;
 }

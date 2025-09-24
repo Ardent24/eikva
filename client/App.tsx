@@ -37,7 +37,7 @@ function App() {
   }
 
   const [sidebarItems, setSidebarItems] = useState(MOCK_SIDEBAR_ITEMS.slice());
-  const [activeSidebarItemId, setActiveSidebarItemId] = useState(null);
+  const [activeSidebarItemId, setActiveSidebarItemId] = useState(1);
   const handleActivateSidebarItem = (sidebarItemId) => {
     setActiveSidebarItemId(sidebarItemId);
   };

@@ -1,0 +1,33 @@
+.textarea {
+  display: block;
+  width: 100%;
+  color: inherit;
+  padding: var(--textarea-padding-y, var(--padding, 1rem))
+    var(--textarea-padding-x, var(--padding, 1rem));
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  border-color: var(
+    --textarea-border-color,
+    var(--border-color, hsl(0, 0%, 50%))
+  );
+  border-radius: var(--textarea-border-radius, var(--border-radius));
+  border-width: var(--textarea-border-width, var(--border-width, 0.0625rem));
+  border-style: var(--textarea-border-style, var(--border-style, solid));
+}
+
+.textarea:disabled {
+  border-color: var(
+    --textarea-disabled-border-color,
+    var(--border-color, hsl(0, 0%, 50%))
+  );
+  border-radius: var(--textarea-disabled-border-radius, var(--border-radius));
+  border-width: var(
+    --textarea-disabled-border-width,
+    var(--border-width, 0.0625rem)
+  );
+  border-style: var(
+    --textarea-disabled-border-style,
+    var(--border-style, solid)
+  );
+}

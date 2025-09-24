@@ -1,0 +1,14 @@
+.card {
+  padding: var(--card-padding, var(--padding, 0.5rem));
+  background-color: var(--card-background-color, hsl(0, 0%, 92%));
+  color: var(--card-color, var(--color, hsl(0, 0%, 20%)));
+  border-color: var(--card-border-color, var(--border-color, hsl(0, 0%, 80%)));
+  border-style: var(--card-border-style, var(--border-style, solid));
+  border-width: var(--card-border-width, var(--border-width, 0.0625rem));
+  border-radius: var(--card-border-radius, var(--border-radius, 0));
+}
+
+.card:hover,
+.card.active {
+  background-color: hsl(0, 0%, 85%);
+}

@@ -20,6 +20,24 @@ export const UploadDetails = () => {
           );
         })}
       </div>
+      <div>
+        <Button>Button</Button>
+      </div>
+      <div>
+        <Button className="button-square">R</Button>
+      </div>
+      <div>
+        <Button className="button-square" icon="favorite" />
+      </div>
+      <div>
+        <Button className="button-small">Button small</Button>
+      </div>
+      <div>
+        <Button className="button-small button-square">R</Button>
+      </div>
+      <div>
+        <Button className="button-small button-square" icon="favorite" />
+      </div>
     </div>
   );
 };

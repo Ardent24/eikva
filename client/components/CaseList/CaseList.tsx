@@ -4,7 +4,7 @@ import { CaseListItem } from "../CaseListItem/CaseListItem";
 import "./CaseList.css";
 export const CaseList = ({ activeSidebarItemId }) => {
   const [activeCase, setActiveCase] = useState(null);
-  const [cases, setCases] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  const [cases, setCases] = useState([0, 1, 2, 3, 4]);
   const [newGroupCases, setNewGroupCases] = useState([]);
 
   return (
