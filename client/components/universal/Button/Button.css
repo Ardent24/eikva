@@ -15,7 +15,7 @@
   vertical-align: middle;
   /* colors */
   background-color: var(
-    --button-background-color,
+    --button-bg-color,
     var(--accent-color, hsl(0, 0%, 95%))
   );
   color: var(--button-color);
@@ -46,6 +46,8 @@
 }
 
 .button-square {
+  display: flex;
+  justify-content: center;
   padding-left: calc(
     var(--button-padding-y, var(--padding, 0.375em)) -
       var(--button-border-width, var(--border-width, 0.0625rem))
@@ -66,7 +68,8 @@
 }
 
 .button-small {
-  font-size: calc(var(--button-font-size, var(--font-size, 1rem)) * 28 / 36);
+  --button-padding-y: 0.3125rem;
+  font-size: calc(var(--button-font-size, var(--font-size, 1rem)) * 3 / 4);
 }
 
 .button-large {
@@ -74,6 +77,7 @@
 }
 
 .button-small.button-square {
+  --button-padding-y: 0.3125rem;
   padding-left: calc(
     var(
         (--button-padding-y, var(--padding, 0.375em)) -
@@ -88,8 +92,8 @@
   );
   width: calc(
     var(--button-font-size, var(--font-size, 1em)) *
-      var(--button-line-height, var(--line-height, 1.5)) * 28 / 36 +
-      var(--button-padding-y, var(--padding, 0.375em)) * 2 * 28 / 36 +
+      var(--button-line-height, var(--line-height, 1.5)) * 3 / 4 +
+      var(--button-padding-y, var(--padding, 0.375em)) * 2 +
       var(--button-border-width, var(--border-width, 0.0625rem)) * 2
   );
 }

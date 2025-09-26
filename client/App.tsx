@@ -1,9 +1,8 @@
-import "./App.css";
-import { Sidebar } from "./components/Sidebar/Sidebar";
-import { CaseList } from "./components/CaseList/CaseList";
-import { DocList } from "./components/DocList/DocList";
-import { UploadDetails } from "./components/UploadDetails/UploadDetails";
-import { useEffect, useState } from "react";
+import { Sidebar } from "./components/Sidebar";
+import { CaseList } from "./components/CaseList";
+import { DocList } from "./components/DocList";
+import { UploadDetails } from "./components/UploadDetails";
+import { useState } from "react";
 import { MOCK_SIDEBAR_ITEMS } from "./assets/mocks";
 
 function App() {
@@ -59,7 +58,7 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className="app display-flex overflov-hidden">
       <Sidebar
         sidebarItems={sidebarItems}
         activeSidebarItemId={activeSidebarItemId}
@@ -67,13 +66,13 @@ function App() {
         handleDeleteSidebarItem={handleDeleteSidebarItem}
         handleAddSidebarItem={handleAddSidebarItem}
       />
-      <div className="work-zone">
+      <main className="main flex-rubber display-flex flex-direction-column">
         <CaseList activeSidebarItemId={activeSidebarItemId} />
-        <div className="upload-zone">
+        <div className="task-area flex-wooden display-flex">
           <UploadDetails />
           <DocList />
         </div>
-      </div>
+      </main>
     </div>
   );
 }

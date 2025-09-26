@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { MOCK_CASE } from "../../assets/mocks";
-import { CaseListItem } from "../CaseListItem/CaseListItem";
-import "./CaseList.css";
+import { MOCK_CASE } from "../assets/mocks";
+import { CaseListItem } from "./CaseListItem";
 export const CaseList = ({ activeSidebarItemId }) => {
   const [activeCase, setActiveCase] = useState(null);
-  const [cases, setCases] = useState([0, 1, 2, 3, 4]);
+  const [cases, setCases] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
   const [newGroupCases, setNewGroupCases] = useState([]);
 
   return (
-    <div className="case-list">
+    <div className="case-list flex-rubber display-flex flex-direction-column overflow-y-auto">
       {activeSidebarItemId !== null &&
         activeSidebarItemId < 10 &&
         cases.map((caseItem) => {

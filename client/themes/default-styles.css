@@ -1,15 +1,13 @@
-/* В этом файле желательно избегать глубокой вложенности, чтобы не присваивать свойствам высокий приоритет */
-
 :root {
-  /* font */
   --font-family: roboto;
   --font-size: 1rem;
   --font-weight: normal;
-  --line-height: 1.5;
+  /* --line-height: 1.5; */
+  --line-height: 1;
 
   --bg-hue: 0;
   --bg-saturation: 0%;
-  --bg-lightness: 80%;
+  --bg-lightness: 95%;
   --bg-alpha: 1;
   --bg: hsla(
     var(--bg-hue),
@@ -32,77 +30,43 @@
   --background-image: var(--background-image-url);
   --background: var(--background-image, var(--background-gradient, var(--bg)));
 
-  --gap: 1rem;
-  --padding: 1rem;
+  --gap: 0;
+  --padding: 0;
   --margin: 1rem;
   --border-radius: 0;
 
+  --button-line-height: 1.5;
   --button-padding-y: 0.375em;
-  --button-padding-x: 0.75em;
+  --button-bg-color: lightblue;
+  --button-border-width: 0em;
+  /* --button-border-color: blue; */
 
-  /* --accent-bg-hue: var(--bg-hue);
-  --accent-bg-saturation: var(--bg-saturation);
-  --accent-bg-lightness: calc(var(--bg-lightness) - 20%);
-  --accent-bg-opacity: 1;
-  --accent-color-hue: 0;
-  --accent-color-saturation: 0%;
-  --accent-color-lightness: 100%;
-  --accent-color-opacity: 1;
-  --muted-color-hue: var(--color-hue);
-  --muted-color-saturation: var(--color-saturation);
-  --muted-color-lightness: calc(var(--color-lightness) + 5%);
-  --muted-color-opacity: 1; */
+  --card-padding: 0;
+  --card-border-width: 0;
+  --card-bg-color: yellow;
+  /* --card-border-color: orange; */
 
-  /* --sidebar-width: 25%; */
+  --textarea-padding: 0;
+  --textarea-border-width: 0;
+  --textarea-bg: transparent;
+  /* --textarea-border-color: transparent; */
+  --textarea-active-bg: white;
+  --textarea-active-border-color: blue;
 
-  /* --base-bg: hsla(
-    var(--bg-hue),
-    var(--bg-saturation),
-    calc(var(--bg-lightness) + 10%),
-    1
-  );
-
-  --accent-bg: hsla(
-    var(--accent-bg-hue),
-    var(--accent-bg-saturation),
-    var(--accent-bg-lightness),
-    var(--accent-bg-opacity)
-  );
-
-  --accent-color: hsla(
-    var(--accent-color-hue),
-    var(--accent-color-saturation),
-    var(--accent-color-lightness),
-    var(--accent-color-opacity)
-  );
-
-  --button-background-color: hsla(
-    var(--bg-hue),
-    var(--bg-saturation),
-    calc(var(--bg-lightness) + 5%),
-    1
-  );
-
-  --active-bg: hsla(
-    var(--bg-hue),
-    var(--bg-saturation),
-    calc(var(--bg-lightness) - 10%),
-    1
-  );
-
-  --muted-color: hsla(
-    var(--muted-color-hue),
-    var(--muted-color-saturation),
-    var(--muted-color-lightness),
-    var(--muted-color-lightness)
-  ); */
+  --card-active-bg: gold;
 }
+
+/*--------------------Общепроектные классы--------------------*/
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  /* transition: all 1.15s; */
+  transition: all 0.2s;
+}
+
+html {
+  line-height: var(--line-height);
 }
 
 body {
@@ -119,15 +83,35 @@ body {
 .display-flex {
   display: flex;
 }
-.display-flex:not(.flex-column) {
+.display-flex:not(.flex-direction-column) {
   column-gap: var(--gap, 1rem);
 }
-.display-flex.flex-column {
+.display-flex.flex-direction-column {
+  flex-direction: column;
   row-gap: var(--gap, 1rem);
 }
+.justify-content-space-between {
+  justify-content: space-between;
+}
+.align-items-center {
+  align-items: center;
+}
+.align-items-start {
+  align-items: start;
+}
 
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
 }
 
 .width-100 {
@@ -136,4 +120,78 @@ body {
 
 .height-100 {
   width: 100%;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+/*--------------------Авторские классы------------------------*/
+
+.flex-rubber {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.flex-wooden {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+/*--------------------Части макета----------------------------*/
+
+.app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.sidebar {
+  --padding: 1rem;
+  --gap: 1rem;
+  width: 20rem;
+  padding: var(--padding) calc(var(--gap) / 2) var(--padding) var(--padding);
+}
+
+.logo-image {
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--color);
+}
+
+.case-group-list {
+  --gap: 0.5rem;
+}
+
+.case-list {
+  --padding: 1rem;
+  --gap: 1rem;
+  padding: var(--padding) var(--padding) 0 calc(var(--gap) / 2);
+  overflow-y: auto;
+}
+
+.refine-textarea {
+  height: 6rem;
+}
+
+.task-area {
+  --padding: 1rem;
+  --gap: 1rem;
+  height: 14rem;
+  padding: var(--gap) var(--padding) var(--padding) calc(var(--gap) / 2);
+}
+
+.upload-area {
+  width: 20rem;
+}
+
+.actions-group {
+  --gap: 0.5rem;
+}
+
+.doc-list {
+  --gap: 0.5rem;
 }

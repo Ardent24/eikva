@@ -1,11 +1,12 @@
 .textarea {
   display: block;
   width: 100%;
+  background-color: var(--textarea-bg, grey);
   color: inherit;
   padding: var(--textarea-padding-y, var(--padding, 1rem))
     var(--textarea-padding-x, var(--padding, 1rem));
   font-size: inherit;
-  line-height: inherit;
+  line-height: var(--line-height);
   font-weight: inherit;
   border-color: var(
     --textarea-border-color,
@@ -16,18 +17,16 @@
   border-style: var(--textarea-border-style, var(--border-style, solid));
 }
 
-.textarea:disabled {
+.textarea.active {
+  background-color: var(--textarea-active-bg, grey);
   border-color: var(
-    --textarea-disabled-border-color,
+    --textarea-active-border-color,
     var(--border-color, hsl(0, 0%, 50%))
   );
-  border-radius: var(--textarea-disabled-border-radius, var(--border-radius));
+  border-radius: var(--textarea-active-border-radius, var(--border-radius));
   border-width: var(
-    --textarea-disabled-border-width,
+    --textarea-active-border-width,
     var(--border-width, 0.0625rem)
   );
-  border-style: var(
-    --textarea-disabled-border-style,
-    var(--border-style, solid)
-  );
+  border-style: var(--textarea-active-border-style, var(--border-style, solid));
 }
