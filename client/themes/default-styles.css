@@ -5,9 +5,10 @@
   /* --line-height: 1.5; */
   --line-height: 1;
 
-  --bg-hue: 0;
-  --bg-saturation: 0%;
-  --bg-lightness: 95%;
+  --bg-hue: 240;
+  --bg-saturation: 75%;
+  /* --bg-lightness: 20%; */
+  --bg-lightness: 0%;
   --bg-alpha: 1;
   --bg: hsla(
     var(--bg-hue),
@@ -18,7 +19,7 @@
 
   --color-hue: 0;
   --color-saturation: 0%;
-  --color-lightness: 50%;
+  --color-lightness: 100%;
   --color-alpha: 1;
   --color: hsl(
     var(--color-hue),
@@ -27,6 +28,7 @@
     var(--color-alpha)
   );
 
+  --background-image-url: url("backgrounds/retro_02.jpg");
   --background-image: var(--background-image-url);
   --background: var(--background-image, var(--background-gradient, var(--bg)));
 
@@ -37,23 +39,27 @@
 
   --button-line-height: 1.5;
   --button-padding-y: 0.375em;
-  --button-bg-color: lightblue;
+  --button-bg-color: hsla(300, 100%, 75%, 1);
+  --button-color: hsla(240, 75%, 0%, 1);
   --button-border-width: 0em;
+  --button-border-radius: 0.25rem;
   /* --button-border-color: blue; */
 
-  --card-padding: 0;
+  --card-padding: 1rem;
   --card-border-width: 0;
-  --card-bg-color: yellow;
+  --card-bg-color: hsla(0, 100%, 80%, 0.2);
+  --card-border-radius: 0.5rem;
+  --card-active-bg: hsla(285, 100%, 75%, 0.5);
   /* --card-border-color: orange; */
 
   --textarea-padding: 0;
   --textarea-border-width: 0;
-  --textarea-bg: transparent;
+  --textarea-border-radius: 0.25rem;
+  --textarea-bg: hsla(250, 100%, 5%, 0.5);
+  /* --textarea-bg: transparent; */
   /* --textarea-border-color: transparent; */
   --textarea-active-bg: white;
   --textarea-active-border-color: blue;
-
-  --card-active-bg: gold;
 }
 
 /*--------------------Общепроектные классы--------------------*/
@@ -92,6 +98,9 @@ body {
 }
 .justify-content-space-between {
   justify-content: space-between;
+}
+.justify-content-center {
+  justify-content: center;
 }
 .align-items-center {
   align-items: center;
@@ -151,15 +160,30 @@ body {
 
 .sidebar {
   --padding: 1rem;
+  --button-border-radius: 0.5rem;
   --gap: 1rem;
   width: 20rem;
   padding: var(--padding) calc(var(--gap) / 2) var(--padding) var(--padding);
 }
 
+.sidebar-item {
+  --button-border-radius: 0.25rem;
+  padding: calc(var(--card-padding) / 2);
+  min-height: 2.75rem;
+}
+
 .logo-image {
   width: 3rem;
   height: 3rem;
-  background-color: var(--color);
+  background-color: var(--button-bg-color);
+  border-radius: var(--card-border-radius);
+}
+
+.tutorial-wizard {
+  --padding: 1rem;
+  --card-padding: 1rem;
+  --gap: 0.5rem;
+  padding: var(--padding) var(--padding) 0 calc(var(--gap));
 }
 
 .case-group-list {
@@ -185,6 +209,7 @@ body {
 }
 
 .upload-area {
+  --button-border-radius: 0.5rem;
   width: 20rem;
 }
 
@@ -194,4 +219,9 @@ body {
 
 .doc-list {
   --gap: 0.5rem;
+  --button-border-radius: 0.25rem;
+}
+
+.doc-list-item {
+  padding: calc(var(--card-padding) / 2);
 }

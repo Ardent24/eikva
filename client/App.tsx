@@ -4,6 +4,7 @@ import { DocList } from "./components/DocList";
 import { UploadDetails } from "./components/UploadDetails";
 import { useState } from "react";
 import { MOCK_SIDEBAR_ITEMS } from "./assets/mocks";
+import { TutorialWizard } from "./components/TutorialWizard";
 
 function App() {
   const loadScript = (url: string) => {
@@ -67,7 +68,8 @@ function App() {
         handleAddSidebarItem={handleAddSidebarItem}
       />
       <main className="main flex-rubber display-flex flex-direction-column">
-        <CaseList activeSidebarItemId={activeSidebarItemId} />
+        <TutorialWizard />
+        {/* <CaseList activeSidebarItemId={activeSidebarItemId} /> */}
         <div className="task-area flex-wooden display-flex">
           <UploadDetails />
           <DocList />

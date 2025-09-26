@@ -14,11 +14,6 @@ export const UploadDetails = () => {
             </Button>
           );
         })}
-        <Button className="button-square">Щ</Button>
-        <Button className="button-square" icon="favorite" />
-        <Button className="button-small ">Small</Button>
-        <Button className="button-small button-square">Щ</Button>
-        <Button className="button-small button-square" icon="favorite" />
       </div>
     </Card>
   );

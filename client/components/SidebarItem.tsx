@@ -11,28 +11,30 @@ export const SidebarItem = ({
   const [showButton, setShowButton] = useState(false);
 
   return (
-    <Card className={isActive && "active"}>
-      <div
-        className="sidebar-item display-flex overflow-x-hidden align-items-center"
-        onMouseEnter={() => {
-          setShowButton(true);
-        }}
-        onMouseLeave={() => {
-          setShowButton(false);
-        }}
-        onClick={handleActivateSidebarItem}
-      >
-        <div className="flex-rubber">{title}</div>
-        {(isActive || showButton) && (
-          <Button
-            icon="more_vert"
-            className="button-small button-square flex-wooden"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            type="button"
-          />
-        )}
-      </div>
+    <Card
+      className={
+        isActive
+          ? "active sidebar-item display-flex overflow-x-hidden align-items-center"
+          : "sidebar-item display-flex overflow-x-hidden align-items-center"
+      }
+      onMouseEnter={() => {
+        setShowButton(true);
+      }}
+      onMouseLeave={() => {
+        setShowButton(false);
+      }}
+      onClick={handleActivateSidebarItem}
+    >
+      <div className="flex-rubber">{title}</div>
+      {(isActive || showButton) && (
+        <Button
+          icon="more_vert"
+          className="button-small button-square flex-wooden"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+          type="button"
+        />
+      )}
     </Card>
   );
 };
