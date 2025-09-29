@@ -33,6 +33,16 @@ export const Sidebar = ({
               />
             );
           })}
+        <SidebarItem
+          title="Empty case list"
+          isActive={activeSidebarItemId === "empty"}
+          handleActivateSidebarItem={() => {
+            handleActivateSidebarItem("empty");
+          }}
+          handleDeleteSidebarItem={() => {
+            handleDeleteSidebarItem("empty");
+          }}
+        />
       </div>
       <Button>{isAuth ? "Sign out" : "Sign in"}</Button>
     </aside>

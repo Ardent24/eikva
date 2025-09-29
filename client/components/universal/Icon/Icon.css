@@ -11,8 +11,13 @@
   font-style: normal;
   display: inline-block;
   vertical-align: calc(-0.125em + (1em - 1rem) / 20);
+  color: var(--icon-color, inherit);
 }
 
+.button-small .icon {
+  font-size: 1rem;
+  line-height: 1.125;
+}
 /*@mixin btn-square-icon {
   .icon {
     font-size: 1.5em;

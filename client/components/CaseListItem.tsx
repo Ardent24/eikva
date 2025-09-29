@@ -23,14 +23,19 @@ export const CaseListItem = ({
     }\nStatus: ${detailedCase.status}`
   );
   const [refineField, setRefineField] = useState("Refine...");
+  let cardClassName =
+    "case display-flex flex-direction-column overflow-y-hidden";
+  if (isActive) {
+    cardClassName += " active";
+  }
+  if (isExpanded) {
+    cardClassName += " expanded";
+  }
+  if (isApproved) {
+    cardClassName += " approved";
+  }
   return (
-    <Card
-      className={
-        isActive
-          ? "active display-flex flex-direction-column overflow-y-hidden"
-          : "display-flex flex-direction-column overflow-y-hidden"
-      }
-    >
+    <Card className={cardClassName}>
       <div className="flex-rubber">
         <div className="case-header display-flex align-items-start">
           <div className="flex-rubber display-flex flex-direction-column">
@@ -43,7 +48,7 @@ export const CaseListItem = ({
               <div>Status: {detailedCase.status}</div>
             </div>
           </div>
-          <div className="flex-wooden display-flex">
+          <div className="case-header-actions flex-wooden display-flex">
             <Button
               icon={isExpanded ? "expand_less" : "expand_more"}
               className="button-small button-square"
@@ -73,6 +78,87 @@ export const CaseListItem = ({
             />
           </div>
         </div>
+        {isExpanded && (
+          <>
+            <hr />
+            <div className="case-details display-flex flex-direction-column align-items-start">
+              <div className="display-flex align-items-center">
+                <div>Precondition: </div>
+                <input value="To do something" />
+              </div>
+              <div>Steps:</div>
+              <div className="padding-left-1">Step 1:</div>
+              <div className="padding-left-2 display-flex align-items-center">
+                <div>Description: </div>
+                <input value="To do something" />
+              </div>
+              <div className="padding-left-2 display-flex align-items-center">
+                <div>Expected result: </div>
+                <input value="Everythyng should work" />
+              </div>
+              <div className="display-flex align-items-center">
+                <div className="padding-left-1">Step 2:</div>
+                <Button
+                  icon="arrow_upward"
+                  className="button-small button-square"
+                />
+                <Button
+                  icon="arrow_downward"
+                  className="button-small button-square"
+                />
+                <Button icon="delete" className="button-small button-square" />
+              </div>
+              <div className="padding-left-2 display-flex align-items-center">
+                <div>Description: </div>
+                <input value="To do something" />
+              </div>
+              <div className="padding-left-2 display-flex align-items-center">
+                <div>Expected result: </div>
+                <input value="Everythyng should work" />
+              </div>
+              <div className="padding-left-1">Step 3:</div>
+              <div className="padding-left-2 display-flex align-items-center">
+                <div>Description: </div>
+                <input value="To do something" />
+              </div>
+              <div className="padding-left-2 display-flex align-items-center">
+                <div>Expected result: </div>
+                <input value="Everythyng should work" />
+              </div>
+              <Button icon="add" className="button-small">
+                Add step
+              </Button>
+              <div className="display-flex align-items-center">
+                <div>Postcondition:</div>
+                <input value="Everythyng should work" />
+              </div>
+              <div className="flex-wooden position-relative width-100">
+                <Textarea
+                  value={refineField}
+                  onChange={(e) => {
+                    setRefineField(e.target.value);
+                  }}
+                  className="refine-textarea"
+                  style={{
+                    padding: "1rem",
+                    height: "6rem",
+                  }}
+                />
+                <Button
+                  icon="send"
+                  className="position-absolute button-small button-square"
+                  style={{ bottom: "0.5rem", right: "0.5rem" }}
+                  onClick={(e) => {
+                    setCaseField(
+                      caseField +
+                        `\n Additional information about ${refineField}: additional information...`
+                    );
+                  }}
+                />
+              </div>
+            </div>
+          </>
+        )}
         {/* <Textarea
           value={caseField}
           onChange={(e) => {
@@ -95,32 +181,6 @@ export const CaseListItem = ({
           {caseField}
         </Textarea> */}
       </div>
-      {/* {isActive && isExpanded && (
-        <div className="flex-wooden position-relative">
-          <Textarea
-            value={refineField}
-            onChange={(e) => {
-              setRefineField(e.target.value);
-            }}
-            className="refine-textarea"
-            style={{
-              padding: "1rem",
-              height: "6rem",
-            }}
-          />
-          <Button
-            icon="send"
-            className="position-absolute button-small button-square"
-            style={{ bottom: "0.5rem", right: "0.5rem" }}
-            onClick={(e) => {
-              setCaseField(
-                caseField +
-                  `\n Additional information about ${refineField}: additional information...`
-              );
-            }}
-          />
-        </div>
-      )} */}
     </Card>
   );
 };

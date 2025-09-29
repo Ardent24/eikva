@@ -6,6 +6,8 @@
   border-style: var(--card-border-style, var(--border-style, solid));
   border-width: var(--card-border-width, var(--border-width, 0.0625rem));
   border-radius: var(--card-border-radius, var(--border-radius, 0));
+  backdrop-filter: var(--card-backdrop-filter);
+  /* box-shadow: white 2px 2px 2px 2px; */
 }
 
 .card:hover,

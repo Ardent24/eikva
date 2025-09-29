@@ -41,7 +41,7 @@ function App() {
   const handleActivateSidebarItem = (sidebarItemId) => {
     setActiveSidebarItemId(sidebarItemId);
   };
-  const [lastSidebarItemId, setLatSidebarItemId] = useState(10);
+  const [lastSidebarItemId, setLatSidebarItemId] = useState(9);
   const handleDeleteSidebarItem = (sidebarItemId) => {
     setSidebarItems(
       sidebarItems.filter((item) => {
@@ -68,8 +68,8 @@ function App() {
         handleAddSidebarItem={handleAddSidebarItem}
       />
       <main className="main flex-rubber display-flex flex-direction-column">
-        <TutorialWizard />
-        {/* <CaseList activeSidebarItemId={activeSidebarItemId} /> */}
+        {activeSidebarItemId === "empty" && <TutorialWizard />}
+        <CaseList activeSidebarItemId={activeSidebarItemId} />
         <div className="task-area flex-wooden display-flex">
           <UploadDetails />
           <DocList />
